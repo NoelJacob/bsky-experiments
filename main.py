@@ -44,3 +44,14 @@ for i in not_following_me:
     sleep(1)
     client.follow(i)
     sleep(1)
+#%%
+# with open('txt/not_following_me.txt', 'w') as f:
+#     f.write('\n'.join(list(not_following_me)))
+# with open('txt/not_followed_by_me.txt', 'w') as f:
+#     f.write('\n'.join(list(not_followed_by_me)))
+# with open('txt/follows.txt', 'w') as f:
+#     f.write('\n'.join(list(follows)))
+# with open('txt/followers.txt', 'w') as f:
+#     f.write('\n'.join(list(followers)))
+# with open('txt/follows_graph.txt', 'w') as f:
+#     f.write('\n'.join([f'{k}\t{v}' for k, v in follows_graph.items()]))
