@@ -21,3 +21,6 @@ jobs:
 
     - name: Run main.py
       run: python main.py
+      env:
+        BSKY_ID: ${{ secrets.BSKY_ID }}
+        BSKY_PASS: ${{ secrets.BSKY_PASS }}
