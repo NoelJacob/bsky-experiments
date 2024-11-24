@@ -15,6 +15,14 @@ for i in range(ceil(profile.follows_count/100)):
         follows.append(j.did)
     cursor = res.cursor
 #%%
+follows_graph = {}
+cursor = None
+for i in range(ceil(profile.follows_count/100)):
+    res = client.get_follows(profile.did, cursor, 100)
+    for j in res.follows:
+        follows_graph[j.did] = j.viewer.following
+    cursor = res.cursor
+#%%
 followers = []
 cursor = None
 for i in range(ceil(profile.followers_count/100)):
@@ -32,7 +40,7 @@ for i in not_followed_by_me:
     client.follow(i)
 #%%
 for i in not_following_me:
-    client.unfollow(i)
+    client.unfollow(follows_graph[i])
     sleep(1)
     client.follow(i)
     sleep(1)
